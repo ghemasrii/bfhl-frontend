@@ -28,6 +28,7 @@ function App() {
       setResponse(res.data);
     } catch (err) {
       setError("API request failed. Please check backend deployment.");
+      console.error(err);
     }
 
     setLoading(false);
@@ -51,13 +52,8 @@ function App() {
       />
 
       <div className="buttons">
-        <button onClick={handleSubmit}>
-          Submit
-        </button>
-
-        <button onClick={loadSample}>
-          Sample Input
-        </button>
+        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={loadSample}>Sample Input</button>
       </div>
 
       {loading && <p className="loading">Processing...</p>}
