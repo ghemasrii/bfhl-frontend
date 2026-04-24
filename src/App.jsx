@@ -8,19 +8,21 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Replace with your deployed backend URL later
-  const API_URL = "https://bfhl-backend-x6vk.onrender.com/bfhl";    setLoading(true);
+  const API_URL = "https://bfhl-backend-x6vk.onrender.com/bfhl";
+
+  const handleSubmit = async () => {
+    setLoading(true);
     setError("");
     setResponse(null);
 
     try {
       const dataArray = input
         .split(",")
-        .map(item => item.trim())
-        .filter(item => item !== "");
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
 
       const res = await axios.post(API_URL, {
-        data: dataArray
+        data: dataArray,
       });
 
       setResponse(res.data);
